@@ -13,7 +13,6 @@ class Basic < Opener::Client::Pipeline
   # Defaults to :async, other option is :sync
   processor_style :async
 
-  # Define your endpoint, defaults to http://opener.olery.com
   webservice_host "http://localhost:9292"
 
 
