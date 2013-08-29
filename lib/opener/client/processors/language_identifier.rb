@@ -1,5 +1,5 @@
 module Opener
-  module Webservice
+  module Client
     module Processors
       class LanguageIdentifier
         def options

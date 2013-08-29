@@ -1,5 +1,5 @@
 module Opener
-  module Webservice
+  module Client
     module ProcessorDefiner
       def self.included(base)
         base.extend ClassMethods

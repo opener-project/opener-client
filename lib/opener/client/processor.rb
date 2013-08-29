@@ -1,5 +1,5 @@
 module Opener
-  module Webservice
+  module Client
     module Processor
       attr_reader :host
 

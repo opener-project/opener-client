@@ -1,7 +1,7 @@
 require 'json'
 
 module Opener
-  module Webservice
+  module Client
     class Pipeline
       include ProcessorDefiner
       include Processors

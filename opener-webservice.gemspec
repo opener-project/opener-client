@@ -1,11 +1,11 @@
 # coding: utf-8
 lib = File.expand_path('../lib', __FILE__)
 $LOAD_PATH.unshift(lib) unless $LOAD_PATH.include?(lib)
-require 'opener/webservice/version'
+require 'opener/client/version'
 
 Gem::Specification.new do |spec|
-  spec.name          = "opener-webservice"
-  spec.version       = Opener::Webservice::VERSION
+  spec.name          = "opener-client"
+  spec.version       = Opener::Client::VERSION
   spec.authors       = ["Wilco van Duinkerken"]
   spec.email         = ["wilcovanduinkerken@olery.com"]
   spec.summary       = %q{A helper gem to make use of OpeNER webservices}

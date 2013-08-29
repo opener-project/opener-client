@@ -1,7 +1,7 @@
 require 'logger'
-require 'opener/webservice'
+require 'opener/client'
 
-class Basic < Opener::Webservice::Pipeline
+class Basic < Opener::Client::Pipeline
   # Define your processors. The order matters.
   define_processors "language-identifier",
                     "tokenizer",

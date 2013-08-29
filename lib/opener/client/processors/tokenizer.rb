@@ -1,5 +1,5 @@
 module Opener
-  module Webservice
+  module Client
     class Tokenizer
       def options
         {kaf: true}
