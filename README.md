@@ -21,6 +21,7 @@ Or install it yourself as:
 You have to create your own OpeNER pipeline. You can do this like this:
 
 ```ruby
+require 'opener/client'
 
 class Basic < Opener::Client::Pipeline
   # Define your processors. The order matters.
@@ -34,7 +35,6 @@ class Basic < Opener::Client::Pipeline
   # Defaults to :async, the other option is :sync
   processor_style :async
 
-  # Define your endpoint, defaults to http://opener.olery.com
   webservice_host "http://opener.olery.com"
 end
 ```
