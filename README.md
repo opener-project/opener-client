@@ -1,12 +1,12 @@
-# Opener::Webservice::Client
+# Opener::Client
 
-TODO: Write a gem description
+This is a ruby library that makes it very easy to connect to OpeNER webservices
 
 ## Installation
 
 Add this line to your application's Gemfile:
 
-    gem 'opener-webservice-client'
+    gem 'opener-client'
 
 And then execute:
 
@@ -14,11 +14,43 @@ And then execute:
 
 Or install it yourself as:
 
-    $ gem install opener-webservice-client
+    $ gem install opener-client
 
 ## Usage
 
-TODO: Write usage instructions here
+You have to create your own OpeNER pipeline. You can do this like this:
+
+```ruby
+
+class Basic < Opener::Client::Pipeline
+  # Define your processors. The order matters.
+  define_processors "language-identifier",
+                    "tokenizer",
+                    "pos-tagger",
+                    "polarity-tagger",
+                    "ner",
+                    "opinion-detector"
+
+  # Defaults to :async, the other option is :sync
+  processor_style :async
+
+  # Define your endpoint, defaults to http://opener.olery.com
+  webservice_host "http://opener.olery.com"
+end
+```
+
+That's it basically. You can now process files like this:
+
+```ruby
+pipeline = Basic.new
+response = pipeline.process("This is the text to analyse")
+```
+
+By default the async callback chain is used. So the response will contain
+an output url where you can find your output after a few seconds.
+
+Check out the examples folder in this repository for a more extensive example.
+
 
 ## Contributing
 
