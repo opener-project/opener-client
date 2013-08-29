@@ -1,5 +1,5 @@
-module OpenerNLP
-  module Processors
+module Opener
+  module Webservice
     class Tokenizer
       def options
         {kaf: true}
