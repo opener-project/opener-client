@@ -15,6 +15,8 @@ class Basic < Opener::Client::Pipeline
 
   webservice_host "http://localhost:9292"
 
+  outlet "http://localhost:3000/review_browser/outlet"
+
 
   def process_file(input_file, output_file)
     text     = File.read(input_file)

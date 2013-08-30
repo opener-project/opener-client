@@ -14,6 +14,10 @@ module Opener
         @@host = host
       end
 
+      def self.outlet(outlet)
+        @@outlet = outlet
+      end
+
       def pipe
         @pipe ||= self.class.processors.map{|p| p.new(@@host)}
       end
@@ -28,7 +32,7 @@ module Opener
         endpoints = pipe.map(&:endpoint)
 
         callbacks = endpoints[1..-1]
-        callbacks << @@host+"/outlet"
+        callbacks << @@outlet
 
         pipe[0].process(input, callbacks)
       end
