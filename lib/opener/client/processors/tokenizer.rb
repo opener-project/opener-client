@@ -2,7 +2,8 @@ module Opener
   module Client
     class Tokenizer
       def options
-        {kaf: true}
+        {kaf: false,
+         language: "en"}
       end
     end
   end

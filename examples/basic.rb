@@ -3,33 +3,36 @@ require 'opener/client'
 
 class Basic < Opener::Client::Pipeline
   # Define your processors. The order matters.
-  define_processors "language-identifier",
-                    "tokenizer",
-                    "pos-tagger",
-                    "polarity-tagger",
-                    "ner",
-                    "opinion-detector"
+  define_processors "language-identifier"
+                    #"tokenizer",
+                    #"tree-tagger",
+                    #"polarity-tagger",
+                    #"property-tagger",
+                    #"opinion-detector"
 
   # Defaults to :async, other option is :sync
   processor_style :async
+  #processor_style :sync
 
-  webservice_host "http://localhost:9292"
-
-  outlet "http://localhost:3000/review_browser/outlet"
+  #webservice_host "http://opener.olery.com"
+  #outlet "http://opener.olery.com/outlet"
+  webservice_host "http://opener.olery.com"
+  outlet "http://opener.olery.com/outlet"
 
 
   def process_file(input_file, output_file)
     text     = File.read(input_file)
 
-    log.info "Testing Async Pipeline\n"
-    log.info "Processing: #{input_file}"
+    #log.info "Testing Async Pipeline\n"
+    #log.info "Processing: #{input_file}"
 
     #
     # This is where the magic happens
     #
     response = process(text)
+    puts response
 
-    wait_for_completion(response, output_file)
+    #wait_for_completion(response, output_file)
   end
 
   def wait_for_completion(response, output)
@@ -70,4 +73,8 @@ end
 
 
 basic = Basic.new
-basic.process_file(ARGV[0], ARGV[1])
+50.times do |t|
+  puts "Iteration #{t}"
+  basic.process_file(ARGV[0], ARGV[1])
+  #sleep(1)
+end
