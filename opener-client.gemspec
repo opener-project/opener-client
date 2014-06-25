@@ -8,7 +8,7 @@ Gem::Specification.new do |spec|
   spec.summary     = %q{A helper gem to make use of OpeNER webservices}
   spec.description = spec.summary
   spec.homepage    = "http://opener-project.github.com"
-  spec.license     = "MIT"
+  spec.license     = "Apache 2.0"
 
   spec.files = Dir.glob([
     'lib/**/*',
